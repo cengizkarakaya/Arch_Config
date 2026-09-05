@@ -158,3 +158,19 @@ hl.bind(
     "SUPER + CTRL + L",
     hl.dsp.exec_cmd("hyprlock")
 )
+
+-- =========================================================
+-- MAKO NOTIFICATIONS
+-- =========================================================
+
+-- Son bildirimi geri getir
+hl.bind(
+    "SUPER + N",
+    hl.dsp.exec_cmd("makoctl restore")
+)
+
+-- Do Not Disturb aç / kapat
+hl.bind(
+    "SUPER + SHIFT + N",
+    hl.dsp.exec_cmd("makoctl mode -t do-not-disturb")
+)

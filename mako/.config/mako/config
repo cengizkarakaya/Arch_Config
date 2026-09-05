@@ -40,3 +40,7 @@ on-button-right=dismiss
 [urgency=high]
 border-color=#BF616AFF
 default-timeout=0
+
+# Do Not Disturb
+[mode=do-not-disturb]
+invisible=1
