@@ -8,6 +8,7 @@ brightnessctl
 fuzzel
 git
 grim
+hypridle
 hyprland
 hyprlock
 hyprpolkitagent

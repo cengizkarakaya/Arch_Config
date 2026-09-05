@@ -61,6 +61,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("mako")
 	hl.exec_cmd("pgrep -x blueman-applet >/dev/null || blueman-applet")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
+	hl.exec_cmd("hypridle")
 end)
 
 
