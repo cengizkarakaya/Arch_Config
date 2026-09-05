@@ -128,3 +128,11 @@ hl.bind(
         'grim -g "$(slurp -d)" - | wl-copy --type image/png'
     )
 )
+
+-- Shift + Print -> alan seç -> dosyaya kaydet
+hl.bind(
+    "SHIFT + Print",
+    hl.dsp.exec_cmd(
+        'mkdir -p "$HOME/Pictures/Screenshots"; grim -g "$(slurp -d)" "$HOME/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png"'
+    )
+)
