@@ -131,3 +131,12 @@ tooltip label {
 #custom-mako.dnd {
     color: #bf616a;
 }
+
+#submap {
+    padding: 0 10px;
+    margin: 4px 4px;
+    background-color: #ebcb8b;
+    color: #14161c;
+    border-radius: 6px;
+    font-weight: bold;
+}

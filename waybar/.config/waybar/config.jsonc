@@ -5,7 +5,8 @@
     "spacing": 4,
 
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+	"hyprland/submap",
     ],
 
     "modules-center": [
@@ -132,5 +133,11 @@
         "icon-size": 16,
         "spacing": 8
     },
+
+"hyprland/submap": {
+    "format": "MODE: {}",
+    "tooltip": false
+},
+
 
 }
