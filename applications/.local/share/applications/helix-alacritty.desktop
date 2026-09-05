@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Helix
+Comment=Edit text files with Helix
+Exec=alacritty -e helix %F
+TryExec=alacritty
+Icon=helix
+Terminal=false
+Categories=Utility;TextEditor;Development;
+MimeType=text/plain;
