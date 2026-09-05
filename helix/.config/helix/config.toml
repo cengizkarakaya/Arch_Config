@@ -1,0 +1,66 @@
+theme = "base16_default_dark"
+
+[editor]
+line-number = "relative"
+mouse = true
+middle-click-paste = true
+
+scroll-lines = 3
+scrolloff = 6
+
+bufferline = "multiple"
+color-modes = true
+cursorline = true
+true-color = true
+
+auto-completion = true
+completion-trigger-len = 2
+auto-format = true
+
+insert-final-newline = true
+trim-trailing-whitespace = true
+
+rulers = [100]
+
+end-of-line-diagnostics = "hint"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "│"
+skip-levels = 1
+
+[editor.statusline]
+left = [
+    "mode",
+    "spinner",
+    "file-name",
+    "read-only-indicator",
+    "file-modification-indicator"
+]
+
+center = []
+
+right = [
+    "diagnostics",
+    "selections",
+    "position",
+    "file-encoding"
+]
+
+[editor.lsp]
+display-messages = true
+display-progress-messages = true
+display-inlay-hints = true
+auto-signature-help = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "disable"
+
+[editor.file-picker]
+hidden = false
