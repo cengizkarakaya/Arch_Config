@@ -116,3 +116,15 @@ hl.define_submap("resize", function()
         hl.dsp.submap("reset")
     )
 end)
+
+-- =========================================================
+-- SCREENSHOT
+-- Print -> alan seç -> clipboard'a PNG
+-- =========================================================
+
+hl.bind(
+    "Print",
+    hl.dsp.exec_cmd(
+        'grim -g "$(slurp -d)" - | wl-copy --type image/png'
+    )
+)
