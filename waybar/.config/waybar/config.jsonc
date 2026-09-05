@@ -18,6 +18,7 @@
         "network",
         "bluetooth",
         "pulseaudio",
+	"custom/mako",
 	"idle_inhibitor",
         "battery",
         "tray"
@@ -83,6 +84,15 @@
     },
     "scroll-step": 5,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+},
+
+"custom/mako": {
+    "exec": "$HOME/.config/waybar/scripts/mako-status.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "makoctl mode -t do-not-disturb",
+    "on-click-right": "makoctl restore",
+    "tooltip": true
 },
 
 "idle_inhibitor": {

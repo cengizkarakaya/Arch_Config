@@ -64,6 +64,7 @@ window#waybar {
 #network,
 #bluetooth,
 #pulseaudio,
+#custom-mako,
 #idle_inhibitor,
 #idle_inhibitor.deactivated {
     color: #8f97a6;
@@ -121,4 +122,12 @@ tooltip {
 
 tooltip label {
     color: #eceff4;
+}
+
+#custom-mako.normal {
+    color: #8f97a6;
+}
+
+#custom-mako.dnd {
+    color: #bf616a;
 }
