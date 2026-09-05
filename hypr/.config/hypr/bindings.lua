@@ -136,3 +136,19 @@ hl.bind(
         'mkdir -p "$HOME/Pictures/Screenshots"; grim -g "$(slurp -d)" "$HOME/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png"'
     )
 )
+
+-- Reboot
+hl.bind(
+    "SUPER + SHIFT + R",
+    hl.dsp.exec_cmd(
+        "hyprshutdown -t 'Restarting...' --post-cmd 'reboot'"
+    )
+)
+
+-- Poweroff - önce dry-run testi
+hl.bind(
+    "SUPER + SHIFT + P",
+    hl.dsp.exec_cmd(
+        "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'"
+    )
+)
