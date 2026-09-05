@@ -152,3 +152,9 @@ hl.bind(
         "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'"
     )
 )
+
+-- Screen lock
+hl.bind(
+    "SUPER + CTRL + L",
+    hl.dsp.exec_cmd("hyprlock")
+)

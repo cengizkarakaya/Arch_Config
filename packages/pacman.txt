@@ -9,6 +9,7 @@ fuzzel
 git
 grim
 hyprland
+hyprlock
 hyprpolkitagent
 hyprshutdown
 intel-ucode
