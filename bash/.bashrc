@@ -23,3 +23,14 @@ alias lt='eza --tree --level=2 --icons=auto --group-directories-first'
 
 # zoxide - smarter cd
 eval "$(zoxide init bash)"
+
+
+# ---------------------------------------------------------
+# fzf
+# ---------------------------------------------------------
+
+[[ -f /usr/share/fzf/completion.bash ]] && source /usr/share/fzf/completion.bash
+[[ -f /usr/share/fzf/key-bindings.bash ]] && source /usr/share/fzf/key-bindings.bash
+
+# Starship prompt
+eval "$(starship init bash)"
