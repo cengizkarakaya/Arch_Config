@@ -20,7 +20,7 @@ hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(
     mod .. " + SHIFT + Q",
     hl.dsp.exec_cmd(
-        "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
+        "hyprshutdown"
     )
 )
 
