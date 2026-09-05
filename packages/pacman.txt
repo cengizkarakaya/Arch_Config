@@ -1,3 +1,4 @@
+7zip
 alacritty
 base
 base-devel
@@ -5,9 +6,13 @@ blueman
 bluez
 bluez-utils
 brightnessctl
+ffmpegthumbnailer
 fuzzel
 git
 grim
+gvfs
+gvfs-mtp
+gvfs-smb
 hypridle
 hyprland
 hyprlock
@@ -27,8 +32,15 @@ slurp
 stow
 sudo
 thunar
+thunar-archive-plugin
+thunar-volman
 ttf-firacode-nerd
+tumbler
+unzip
+usbutils
 waybar
 wireplumber
 wl-clipboard
+xarchiver
 xdg-desktop-portal-hyprland
+zip
