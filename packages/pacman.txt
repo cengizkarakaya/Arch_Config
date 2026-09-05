@@ -9,6 +9,7 @@ bluez
 bluez-utils
 bottom
 brightnessctl
+chafa
 dust
 eza
 fastfetch
@@ -29,6 +30,7 @@ hyprland
 hyprlock
 hyprpolkitagent
 hyprshutdown
+imagemagick
 imv
 intel-ucode
 jq
@@ -48,6 +50,7 @@ ouch
 perl-file-mimeinfo
 pipewire-audio
 pipewire-pulse
+poppler
 procs
 ripgrep
 rsync
