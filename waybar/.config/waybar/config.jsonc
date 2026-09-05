@@ -18,6 +18,7 @@
         "network",
         "bluetooth",
         "pulseaudio",
+	"idle_inhibitor",
         "battery",
         "tray"
     ],
@@ -29,10 +30,22 @@
     },
 
     "clock": {
-        "interval": 1,
-        "format": "{:%H:%M}",
-        "tooltip-format": "{:%A, %d %B %Y}"
-    },
+    "interval": 1,
+    "format": "{:%H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+
+    "calendar": {
+        "mode": "month",
+        "weeks-pos": "left",
+        "iso8601": true,
+
+        "format": {
+            "months": "<b>{}</b>",
+            "weekdays": "<b>{}</b>",
+            "today": "<span color='#a3be8c'><b><u>{}</u></b></span>"
+        }
+    }
+},
 
     "cpu": {
         "interval": 2,
@@ -44,13 +57,14 @@
         "format": " {percentage}%"
     },
 
-    "network": {
-        "interval": 5,
-        "format-wifi": "  {signalStrength}%",
-        "format-ethernet": "󰈀",
-        "format-disconnected": "󰤭",
-        "tooltip-format-wifi": "{essid}\n{ipaddr}\nSignal: {signalStrength}%"
-    },
+  "network": {
+    "interval": 5,
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip-format-wifi": "{essid}\n{ipaddr}\nSignal: {signalStrength}%",
+    "on-click": "alacritty -e nmtui"
+},
 
     "bluetooth": {
         "format": "",
@@ -61,14 +75,25 @@
         "on-click": "blueman-manager"
     },
 
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+        "default": ["", "", ""]
     },
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+},
+
+"idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    },
+    "tooltip-format-activated": "Idle engelleme: AÇIK",
+    "tooltip-format-deactivated": "Idle engelleme: KAPALI"
+},
 
     "battery": {
         "interval": 30,
@@ -96,5 +121,6 @@
     "tray": {
         "icon-size": 16,
         "spacing": 8
-    }
+    },
+
 }

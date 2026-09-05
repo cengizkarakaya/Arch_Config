@@ -64,6 +64,14 @@ window#waybar {
 #network,
 #bluetooth,
 #pulseaudio,
+#idle_inhibitor,
+#idle_inhibitor.deactivated {
+    color: #8f97a6;
+}
+
+#idle_inhibitor.activated {
+    color: #a3be8c;
+}
 #battery,
 #tray {
     padding: 0 8px;
