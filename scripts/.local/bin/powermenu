@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+choice=$(
+    printf '%s\n' \
+        '󰌾  Kilitle' \
+        '󰤄  Uyku' \
+        '󰒲  Hibernate' \
+        '󰜉  Yeniden başlat' \
+        '󰐥  Kapat' \
+        '󰗽  Oturumu kapat' |
+    fuzzel --dmenu --prompt='Güç > '
+)
+
+case "$choice" in
+    '󰌾  Kilitle')
+        hyprlock
+        ;;
+
+    '󰤄  Uyku')
+        systemctl suspend
+        ;;
+
+    '󰒲  Hibernate')
+        systemctl hibernate
+        ;;
+
+    '󰜉  Yeniden başlat')
+        hyprshutdown \
+            -t 'Yeniden başlatılıyor...' \
+            --post-cmd 'systemctl reboot'
+        ;;
+
+    '󰐥  Kapat')
+        hyprshutdown \
+            -t 'Bilgisayar kapatılıyor...' \
+            --post-cmd 'systemctl poweroff'
+        ;;
+
+    '󰗽  Oturumu kapat')
+        hyprshutdown
+        ;;
+esac
