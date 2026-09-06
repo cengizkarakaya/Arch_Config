@@ -83,3 +83,4 @@ function y() {
 # ---------------------------------------------------------
 
 eval "$(starship init bash)"
+alias hx='helix'
