@@ -2,38 +2,61 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
+# Interactive shell değilse çık
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+
+# ---------------------------------------------------------
+# Basic
+# ---------------------------------------------------------
+
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
-
 
 # ---------------------------------------------------------
-# Modern CLI tools
+# Bash history
 # ---------------------------------------------------------
 
+# Daha uzun history
+HISTSIZE=10000
+HISTFILESIZE=20000
+
+# Aynı komutların tekrarını temizle,
+# başında boşluk olan komutları history'ye yazma
+HISTCONTROL="erasedups:ignorespace"
+
+# Çok satırlı komutları tek history girdisi olarak sakla
+shopt -s cmdhist
+
+# Terminal kapanınca history'nin üzerine yazmak yerine ekle
+shopt -s histappend
+
+# history komutunda tarih/saat göster
+HISTTIMEFORMAT='%F %T '
+
+# ---------------------------------------------------------
 # eza - modern ls
+# ---------------------------------------------------------
+
 alias ls='eza --icons=auto --group-directories-first'
 alias ll='eza -lah --icons=auto --group-directories-first --git'
 alias la='eza -a --icons=auto --group-directories-first'
-alias tree='eza --tree --icons=auto --group-directories-first'
 alias lt='eza --tree --level=2 --icons=auto --group-directories-first'
+alias tree='eza --tree --icons=auto --group-directories-first'
 
+
+# ---------------------------------------------------------
 # zoxide - smarter cd
+# ---------------------------------------------------------
+
 eval "$(zoxide init bash)"
 
 
 # ---------------------------------------------------------
-# fzf
+# fzf - fuzzy finder
 # ---------------------------------------------------------
 
-[[ -f /usr/share/fzf/completion.bash ]] && source /usr/share/fzf/completion.bash
-[[ -f /usr/share/fzf/key-bindings.bash ]] && source /usr/share/fzf/key-bindings.bash
+eval "$(fzf --bash)"
 
-# Starship prompt
-eval "$(starship init bash)"
 
 # ---------------------------------------------------------
 # Yazi
@@ -50,3 +73,10 @@ function y() {
 
     command rm -f -- "$tmp"
 }
+
+
+# ---------------------------------------------------------
+# Starship prompt
+# ---------------------------------------------------------
+
+eval "$(starship init bash)"

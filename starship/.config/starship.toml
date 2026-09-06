@@ -19,13 +19,17 @@ style = "bold cyan"
 
 [git_branch]
 symbol = " "
+format = "[$symbol$branch]($style) "
 style = "bold purple"
 
 [git_status]
 style = "bold yellow"
 
 [rust]
-symbol = "🦀 "
+symbol = " "
+format = "[$symbol$version]($style) "
+version_format = "${raw}"
+style = "bold red"
 
 [cmd_duration]
 min_time = 2000

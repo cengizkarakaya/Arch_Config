@@ -174,3 +174,6 @@ hl.bind(
     "SUPER + SHIFT + N",
     hl.dsp.exec_cmd("makoctl mode -t do-not-disturb")
 )
+
+
+hl.bind(mod .. " + M", hl.dsp.exec_cmd("~/.local/bin/powermenu"))
