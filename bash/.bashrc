@@ -12,6 +12,9 @@
 
 alias grep='grep --color=auto'
 
+# Kullanıcı komutları
+export PATH="$HOME/.local/bin:$PATH"
+
 # ---------------------------------------------------------
 # Bash history
 # ---------------------------------------------------------

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+DOTFILES_DIR="$(git -C "$(dirname "$SCRIPT_PATH")" rev-parse --show-toplevel)"
+
+HOST="${1:-$(</etc/hostname)}"
+PKG_DIR="$DOTFILES_DIR/packages/hosts/$HOST"
+
+mkdir -p "$PKG_DIR"
+
+tmp_dir="$(mktemp -d)"
+trap 'rm -rf "$tmp_dir"' EXIT
+
+official="$tmp_dir/official.txt"
+foreign="$tmp_dir/foreign.txt"
+
+echo "==> Host: $HOST"
+echo "==> Paket listeleri hazırlanıyor..."
+
+# Resmî Arch depolarından açıkça kurulmuş paketler
+pacman -Qqen | LC_ALL=C sort > "$official"
+
+# AUR / yerel olarak kurulmuş açıkça kurulmuş paketler
+pacman -Qqem | LC_ALL=C sort > "$foreign"
+
+install -m 0644 "$official" \
+    "$PKG_DIR/all-explicit.txt"
+
+install -m 0644 "$foreign" \
+    "$PKG_DIR/all-foreign.txt"
+
+echo
+echo "==> Resmî paketler: $(wc -l < "$official")"
+echo "==> Foreign/AUR:     $(wc -l < "$foreign")"
+
+echo
+echo "==> Git değişiklikleri:"
+git -C "$DOTFILES_DIR" diff -- \
+    "packages/hosts/$HOST/all-explicit.txt" \
+    "packages/hosts/$HOST/all-foreign.txt"
