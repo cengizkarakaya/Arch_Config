@@ -13,6 +13,7 @@ STOW_PACKAGES=(
     alacritty
     applications
     bash
+    bat
     fuzzel
     gtk
     helix
@@ -26,6 +27,7 @@ STOW_PACKAGES=(
     waybar
     yazi
     zellij
+    zathura
 )
 
 echo "==> Dotfiles: $DOTFILES_DIR"
