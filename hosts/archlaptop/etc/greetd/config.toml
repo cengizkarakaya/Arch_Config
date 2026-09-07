@@ -2,5 +2,5 @@
 vt = 2
 
 [default_session]
-command = "tuigreet --time --remember --remember-user-session --cmd start-hyprland"
+command = "tuigreet --time --remember --remember-user-session --greeting 'Arch Linux' --width 60 --container-padding 2 --prompt-padding 1 --theme 'border=cyan;text=white;time=blue;container=black;title=cyan;greet=cyan;prompt=blue;input=white;action=cyan;button=green' --cmd start-hyprland"
 user = "greeter"

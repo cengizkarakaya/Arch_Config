@@ -1,0 +1,17 @@
+[Unit]
+Description=Apply Nord colors to Linux virtual consoles
+After=systemd-vconsole-setup.service
+Before=greetd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/setvtrgb -C /dev/tty1 /etc/vtrgb
+ExecStart=/usr/bin/setvtrgb -C /dev/tty2 /etc/vtrgb
+ExecStart=/usr/bin/setvtrgb -C /dev/tty3 /etc/vtrgb
+ExecStart=/usr/bin/setvtrgb -C /dev/tty4 /etc/vtrgb
+ExecStart=/usr/bin/setvtrgb -C /dev/tty5 /etc/vtrgb
+ExecStart=/usr/bin/setvtrgb -C /dev/tty6 /etc/vtrgb
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
