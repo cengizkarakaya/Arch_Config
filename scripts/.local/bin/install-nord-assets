@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+THEMES_DIR="$DATA_HOME/themes"
+ICONS_DIR="$DATA_HOME/icons"
+
+TMP_DIR="$(mktemp -d)"
+trap 'rm -rf "$TMP_DIR"' EXIT
+
+mkdir -p "$THEMES_DIR" "$ICONS_DIR"
+
+echo "==> Nordic GTK teması kuruluyor..."
+
+git clone --depth=1 \
+    https://github.com/EliverLara/Nordic.git \
+    "$TMP_DIR/Nordic"
+
+rm -rf "$THEMES_DIR/Nordic"
+rm -rf "$TMP_DIR/Nordic/.git"
+cp -a "$TMP_DIR/Nordic" "$THEMES_DIR/Nordic"
+
+echo "==> Nordzy-dark ikon teması kuruluyor..."
+
+git clone --depth=1 \
+    https://github.com/MolassesLover/Nordzy-icon.git \
+    "$TMP_DIR/Nordzy-icon"
+
+(
+    cd "$TMP_DIR/Nordzy-icon"
+    ./install.sh -c dark
+)
+
+echo "==> Nordzy XCursor kuruluyor..."
+
+curl -fL --retry 3 \
+    -o "$TMP_DIR/Nordzy-cursors-white.tar.gz" \
+    https://github.com/guillaumeboehm/Nordzy-cursors/releases/download/v2.4.0/Nordzy-cursors-white.tar.gz
+
+rm -rf "$ICONS_DIR/Nordzy-cursors-white"
+tar -xzf "$TMP_DIR/Nordzy-cursors-white.tar.gz" -C "$ICONS_DIR"
+
+echo "==> Nordzy Hyprcursor kuruluyor..."
+
+curl -fL --retry 3 \
+    -o "$TMP_DIR/Nordzy-hyprcursors-white.tar.gz" \
+    https://github.com/guillaumeboehm/Nordzy-cursors/releases/download/v2.4.0/Nordzy-hyprcursors-white.tar.gz
+
+rm -rf "$ICONS_DIR/Nordzy-hyprcursors-white"
+tar -xzf "$TMP_DIR/Nordzy-hyprcursors-white.tar.gz" -C "$ICONS_DIR"
+
+if command -v gsettings >/dev/null 2>&1; then
+    echo "==> GTK görünüm ayarları uygulanıyor..."
+
+    gsettings set org.gnome.desktop.interface gtk-theme 'Nordic' || true
+    gsettings set org.gnome.desktop.interface icon-theme 'Nordzy-dark' || true
+    gsettings set org.gnome.desktop.interface cursor-theme 'Nordzy-cursors-white' || true
+    gsettings set org.gnome.desktop.interface cursor-size 24 || true
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' || true
+fi
+
+echo "==> Nord tema bileşenleri hazır."

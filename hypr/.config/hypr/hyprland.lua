@@ -50,7 +50,7 @@ local menu        = "hyprlauncher"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
--- hl.on("hyprland.start", function () 
+-- hl.on("hyprland.start", function ()
 --   hl.exec_cmd(terminal)
 --   hl.exec_cmd("nm-applet")
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
@@ -73,10 +73,11 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_THEME", "Nordzy-hyprcursors-white")
 hl.env("HYPRCURSOR_SIZE", "24")
 
-
+hl.env("XCURSOR_THEME", "Nordzy-cursors-white")
+hl.env("XCURSOR_SIZE", "24")
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
@@ -109,9 +110,9 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
-        },
+    active_border   = { colors = {"rgb(88C0D0)", "rgb(81A1C1)"}, angle = 45 },
+    inactive_border = "rgba(4C566A99)",
+},
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false,
@@ -131,11 +132,12 @@ hl.config({
         inactive_opacity = 1.0,
 
         shadow = {
-            enabled      = true,
-            range        = 4,
-            render_power = 3,
-            color        = 0xee1a1a1a,
-        },
+    enabled        = true,
+    range          = 4,
+    render_power   = 3,
+    color          = 0xcc20242c,
+    color_inactive = 0x8820242c,
+},
 
         blur = {
             enabled   = true,

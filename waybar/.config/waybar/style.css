@@ -1,3 +1,24 @@
+@define-color bg          #20242C;
+@define-color nord0       #2E3440;
+@define-color nord1       #3B4252;
+@define-color nord2       #434C5E;
+@define-color nord3       #4C566A;
+
+@define-color nord4       #D8DEE9;
+@define-color nord5       #E5E9F0;
+@define-color nord6       #ECEFF4;
+
+@define-color nord7       #8FBCBB;
+@define-color nord8       #88C0D0;
+@define-color nord9       #81A1C1;
+@define-color nord10      #5E81AC;
+
+@define-color red         #BF616A;
+@define-color orange      #D08770;
+@define-color yellow      #EBCB8B;
+@define-color green       #A3BE8C;
+@define-color purple      #B48EAD;
+
 * {
     border: none;
     border-radius: 0;
@@ -7,14 +28,14 @@
 }
 
 window#waybar {
-    background-color: rgba(20, 22, 28, 0.96);
-    color: #d8dee9;
-    border-bottom: 1px solid #343945;
+    background-color: @bg;
+    color: @nord4;
+    border-bottom: 1px solid @nord1;
 }
 
-/* ----------------
+/* =========================
    Workspaces
-   ---------------- */
+   ========================= */
 
 #workspaces {
     margin-left: 6px;
@@ -23,41 +44,73 @@ window#waybar {
 #workspaces button {
     padding: 0 8px;
     margin: 4px 2px;
-    color: #8f97a6;
+
+    color: @nord3;
     background-color: transparent;
+
     border-radius: 6px;
 }
 
 #workspaces button:hover {
-    color: #ffffff;
-    background-color: #303540;
+    color: @nord6;
+    background-color: @nord1;
 }
 
 #workspaces button.active {
-    color: #ffffff;
-    background-color: #434c5e;
+    color: @nord8;
+    background-color: @nord2;
 }
 
 #workspaces button.urgent {
-    color: #ffffff;
-    background-color: #8c3b3b;
+    color: @nord6;
+    background-color: @red;
 }
 
-/* ----------------
-   Center clock
-   ---------------- */
+/* =========================
+   Window title
+   ========================= */
 
-#clock {
+#window {
     padding: 0 10px;
-    margin: 4px 2px;
-    background-color: #272b35;
+    margin: 4px 4px;
+
+    color: @nord4;
+    background-color: transparent;
+}
+
+/* =========================
+   Submap
+   ========================= */
+
+#submap {
+    padding: 0 10px;
+    margin: 4px;
+
+    color: @nord0;
+    background-color: @yellow;
+
     border-radius: 6px;
     font-weight: bold;
 }
 
-/* ----------------
-   Right modules
-   ---------------- */
+/* =========================
+   Clock
+   ========================= */
+
+#clock {
+    padding: 0 12px;
+    margin: 4px 2px;
+
+    color: @nord6;
+    background-color: @nord0;
+
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* =========================
+   Right-side modules
+   ========================= */
 
 #cpu,
 #memory,
@@ -66,86 +119,95 @@ window#waybar {
 #pulseaudio,
 #custom-mako,
 #idle_inhibitor,
-#idle_inhibitor.deactivated {
-    color: #8f97a6;
-}
-
-#idle_inhibitor.activated {
-    color: #a3be8c;
-}
 #battery,
 #tray {
     padding: 0 8px;
     margin: 4px 2px;
-    background-color: #272b35;
+
+    color: @nord4;
+    background-color: @nord0;
+
     border-radius: 6px;
+}
+
+/* Daha sakin sistem bilgileri */
+
+#cpu,
+#memory {
+    color: @nord9;
+}
+
+#network {
+    color: @nord8;
+}
+
+#bluetooth {
+    color: @nord9;
+}
+
+#pulseaudio {
+    color: @nord7;
+}
+
+/* =========================
+   Status states
+   ========================= */
+
+#network.disconnected {
+    color: @nord3;
+}
+
+#pulseaudio.muted {
+    color: @nord3;
+}
+
+#idle_inhibitor.deactivated {
+    color: @nord3;
+}
+
+#idle_inhibitor.activated {
+    color: @green;
+}
+
+#battery {
+    color: @nord4;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+}
+
+#custom-mako.normal {
+    color: @nord8;
+}
+
+#custom-mako.dnd {
+    color: @red;
 }
 
 #tray {
     margin-right: 6px;
 }
 
-/* ----------------
-   Status states
-   ---------------- */
-
-#network.disconnected {
-    color: #7f849c;
-}
-
-#pulseaudio.muted {
-    color: #7f849c;
-}
-
-#battery.charging,
-#battery.plugged {
-    color: #a3be8c;
-}
-
-#battery.warning:not(.charging) {
-    color: #ebcb8b;
-}
-
-#battery.critical:not(.charging) {
-    color: #bf616a;
-}
-
-/* ----------------
+/* =========================
    Tooltip
-   ---------------- */
+   ========================= */
 
 tooltip {
-    background-color: #1e2128;
-    border: 1px solid #3a404d;
-    border-radius: 6px;
+    background-color: @nord0;
+    border: 1px solid @nord2;
+    border-radius: 8px;
 }
 
 tooltip label {
-    color: #eceff4;
+    color: @nord6;
 }
-
-#custom-mako.normal {
-    color: #8f97a6;
-}
-
-#custom-mako.dnd {
-    color: #bf616a;
-}
-
-#submap {
-    padding: 0 10px;
-    margin: 4px 4px;
-    background-color: #ebcb8b;
-    color: #14161c;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-#window {
-    padding: 0 10px;
-    margin: 4px 4px;
-    color: #b8c0cc;
-    background-color: transparent;
-}
-
-

@@ -60,6 +60,7 @@ nano
 networkmanager
 numbat
 nvme-cli
+nwg-look
 ouch
 pacman-contrib
 perl-file-mimeinfo

@@ -14,6 +14,7 @@ STOW_PACKAGES=(
     applications
     bash
     fuzzel
+    gtk
     helix
     hypr
     mako
@@ -51,6 +52,15 @@ for package in "${STOW_PACKAGES[@]}"; do
         stow --restow --target="$HOME" "$package"
     fi
 done
+
+echo
+echo "==> Nord masaüstü teması kuruluyor..."
+
+if [[ -x "$HOME/.local/bin/install-nord-assets" ]]; then
+    "$HOME/.local/bin/install-nord-assets"
+else
+    echo "    install-nord-assets bulunamadı; tema kurulumu atlandı."
+fi
 
 echo
 echo "==> Yazi eklentileri ve flavor'ları kuruluyor..."
