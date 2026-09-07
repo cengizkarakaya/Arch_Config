@@ -3,7 +3,7 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-HOST="${1:-$(hostname)}"
+HOST="${1:-$(</etc/hostname)}"
 
 PKG_DIR="$DOTFILES_DIR/packages/hosts/$HOST"
 OFFICIAL_PKGS="$PKG_DIR/all-explicit.txt"
@@ -51,6 +51,16 @@ for package in "${STOW_PACKAGES[@]}"; do
         stow --restow --target="$HOME" "$package"
     fi
 done
+
+echo
+echo "==> Yazi eklentileri ve flavor'ları kuruluyor..."
+
+if command -v ya >/dev/null 2>&1 &&
+   [[ -f "$HOME/.config/yazi/package.toml" ]]; then
+    ya pkg install
+else
+    echo "    Yazi veya package.toml bulunamadı; bu adım atlandı."
+fi
 
 echo
 echo "==> Kullanıcı dotfiles kurulumu tamamlandı."
