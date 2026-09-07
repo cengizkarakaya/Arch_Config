@@ -23,6 +23,7 @@ fuzzel
 fzf
 git
 git-delta
+github-cli
 greetd
 greetd-tuigreet
 grim
@@ -54,6 +55,7 @@ man-db
 man-pages
 mesa
 mesa-utils
+mpv
 nano
 networkmanager
 numbat

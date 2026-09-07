@@ -12,6 +12,10 @@
 
 alias grep='grep --color=auto'
 
+export EDITOR="hx"
+export VISUAL="hx"
+export SUDO_EDITOR="hx"
+
 # Kullanıcı komutları
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -69,7 +73,8 @@ function y() {
     local tmp cwd
     tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 
-    command yazi "$@" --cwd-file="$tmp"
+    env -u HYPRLAND_INSTANCE_SIGNATURE \
+        yazi "$@" --cwd-file="$tmp"
 
     IFS= read -r -d '' cwd < "$tmp"
     [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
@@ -77,6 +82,18 @@ function y() {
     command rm -f -- "$tmp"
 }
 
+function yc() {
+    local tmp cwd
+    tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+
+    env -u HYPRLAND_INSTANCE_SIGNATURE \
+        yazi "$@" --cwd-file="$tmp"
+
+    IFS= read -r -d '' cwd < "$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+
+    command rm -f -- "$tmp"
+}
 
 # ---------------------------------------------------------
 # Starship prompt
