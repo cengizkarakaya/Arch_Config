@@ -28,6 +28,8 @@ STOW_PACKAGES=(
     yazi
     zellij
     zathura
+    bottom
+    fastfetch
 )
 
 echo "==> Dotfiles: $DOTFILES_DIR"
