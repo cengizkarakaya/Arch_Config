@@ -13,6 +13,7 @@ hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("alacritty"))
 hl.bind(mod .. " + B", hl.dsp.exec_cmd("brave"))
 hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd("thunar"))
+hl.bind(mod .. " + W", hl.dsp.exec_cmd("waypaper"))
 
 -- Pencere
 hl.bind(mod .. " + Q", hl.dsp.window.close())
@@ -145,7 +146,7 @@ hl.bind(
     )
 )
 
--- Poweroff - önce dry-run testi
+-- Poweroff
 hl.bind(
     "SUPER + SHIFT + P",
     hl.dsp.exec_cmd(
@@ -176,4 +177,4 @@ hl.bind(
 )
 
 
-hl.bind(mod .. " + M", hl.dsp.exec_cmd("~/.local/bin/powermenu"))
+hl.bind(mod .. " + M", hl.dsp.exec_cmd("$HOME/.local/bin/powermenu"))

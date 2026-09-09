@@ -56,8 +56,11 @@ local menu        = "hyprlauncher"
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
 
+
+
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
+	hl.exec_cmd("sh -c 'sleep 0.3; waypaper --restore'")
 	hl.exec_cmd("mako")
 	hl.exec_cmd("pgrep -x blueman-applet >/dev/null || blueman-applet")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
