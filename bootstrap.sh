@@ -91,7 +91,12 @@ if [[ -d "$DOTFILES_DIR/hosts/$HOST" ]]; then
     echo "    $DOTFILES_DIR/hosts/$HOST"
     echo
     echo "Bunlar /etc veya /boot üzerine otomatik kopyalanmadı."
-    echo "Yeni kurulumda UUID ve donanım farklarını kontrol ederek elle uygula."
+    echo
+    echo "Önce dry-run:"
+    echo "    restore-host"
+    echo
+    echo "Kontrol ettikten sonra uygulamak için:"
+    echo "    restore-host --apply"
 fi
 
 echo
